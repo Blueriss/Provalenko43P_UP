@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Design.PreviewWith>
+	<Border Padding="20">
+		<!-- Add Controls for Previewer Here -->
+	</Border>
+</Design.PreviewWith>
+
+<!-- Стиль для всех TextBlock -->
+<Style Selector="TextBlock">
+	<Setter Property="FontFamily" Value="Segoe UI"/>
+</Style>
+
+<!-- Стиль для всех TextBox -->
+<Style Selector="TextBox">
+	<Setter Property="FontFamily" Value="Segoe UI"/>
+</Style>
+
+<!-- Стиль для всех NumericUpDown -->
+<Style Selector="NumericUpDown">
+	<Setter Property="FontFamily" Value="Segoe UI"/>
+</Style>
+
+<!-- Вы также можете добавить стили для других элементов, если это необходимо -->
+</Styles>

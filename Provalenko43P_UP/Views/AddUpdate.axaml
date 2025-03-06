@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:vm="using:Provalenko43P_UP.ViewModels"
+			 x:DataType="vm:AddUpdateVM"
+             x:Class="Provalenko43P_UP.AddUpdate">
+
+	<Grid>
+		<TextBlock HorizontalAlignment="Center" Text="{Binding TextPage}" FontSize="20"></TextBlock>
+
+		<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F4E8D3" Width="300">
+
+
+			<TextBlock Text="Наименование"></TextBlock>
+			<TextBox Text="{Binding NewPartner.Name}" ></TextBox>
+			<TextBlock Text="Тип партнёра"></TextBlock>
+			<ComboBox ItemsSource="{Binding types}" SelectedItem="{Binding NewPartner.TypeNavigation}" Width="300" >
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Type}"></TextBlock>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<TextBlock Text="Рейтинг"></TextBlock>
+			<NumericUpDown Value="{Binding NewPartner.Rating}" Increment="1"></NumericUpDown>
+			<TextBlock Text="Адрес"></TextBlock>
+			<TextBox Text="{Binding NewPartner.Address}" TextWrapping="Wrap"></TextBox>
+			<TextBlock Text="ФИО директора"></TextBlock>
+			<TextBox TextWrapping="Wrap" Text="{Binding NewPartner.Fio}"></TextBox>
+			<TextBlock Text="Телефон"></TextBlock>
+			<TextBox Text="{Binding NewPartner.Phone}"></TextBox>
+			<TextBlock Text="email"></TextBlock>
+			<TextBox Text="{Binding NewPartner.Email}"></TextBox>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+			<Button Command="{Binding Add}" Background="#67BA80" HorizontalAlignment="Center" Margin="10">
+				<TextBlock Text="{Binding TextButton}"></TextBlock>
+			</Button>
+				<Button Command="{Binding Back}" Background="#67BA80" HorizontalAlignment="Center">
+					<TextBlock Text="Назад"></TextBlock>
+				</Button>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

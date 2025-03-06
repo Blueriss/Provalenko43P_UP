@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:vm="using:Provalenko43P_UP.ViewModels"
+			 x:DataType="vm:ShowVM"
+             x:Class="Provalenko43P_UP.Show">
+	
+	<Grid>	
+		<StackPanel HorizontalAlignment="Center">
+			<Button Command="{Binding PageAdd}" Background="#67BA80">
+				<TextBlock Text="Добавить"></TextBlock>
+			</Button>
+		</StackPanel>
+		<ListBox ItemsSource="{Binding Part}" Width="700" Height="640" Background="#F4E8D3">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Button Command="{Binding $parent[UserControl].((vm:ShowVM)DataContext).PageUpdate}" CommandParameter="{Binding Id}">
+						<Border BorderBrush="Black" BorderThickness="1" CornerRadius="4" Padding="4">
+							<StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10" >
+								<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+									<TextBlock Text="{Binding TypeNavigation.Type}" />
+									<TextBlock Text=" | " />
+									<TextBlock Text="{Binding Name}"  Width="430"/>
+									<TextBlock Text="{Binding discount}"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="100 0 0 0"/>
+								</StackPanel>
+								<TextBlock Text="{Binding Fio}" />
+								<TextBlock Text="{Binding Phone}" />
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="Рейтинг: " />
+									<TextBlock Text="{Binding Rating}" />
+								</StackPanel>
+								<StackPanel>
+									<Button Command="{Binding $parent[UserControl].((vm:ShowVM)DataContext).PageProduct}" CommandParameter="{Binding Id}">
+										<TextBlock Text="Просмотреть историю реализации продукции"></TextBlock>
+									</Button>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</Button>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</UserControl>

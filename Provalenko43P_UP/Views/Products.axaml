@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:vm="using:Provalenko43P_UP.ViewModels"
+			 x:DataType="vm:ProductsVM"
+             x:Class="Provalenko43P_UP.Products">
+
+	<Grid>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">		
+			<TextBlock HorizontalAlignment="Center" Text="История реализации продукции партнёра " FontSize="20"></TextBlock>
+			<TextBlock HorizontalAlignment="Center" Text="{Binding Part1.Name}" FontSize="20"></TextBlock>
+		</StackPanel>
+		<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+	<ListBox ItemsSource="{Binding Part}" Width="700" Height="640" Background="#F4E8D3">
+		<ListBox.ItemTemplate>
+			<DataTemplate>		
+					<Border BorderBrush="Black" BorderThickness="1" CornerRadius="4" Padding="4">
+						<StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10" >
+							<TextBlock Text="Продукция: "></TextBlock>
+							<TextBlock Text="{Binding IdProductNavigation.Name}"></TextBlock>
+							<TextBlock Text="Количество: "></TextBlock>
+							<TextBlock Text="{Binding ProductCount}"></TextBlock>
+							<TextBlock Text="Дата продажи: "></TextBlock>
+							<TextBlock Text="{Binding Date}"></TextBlock>
+						</StackPanel>
+					</Border>
+			</DataTemplate>
+		</ListBox.ItemTemplate>
+		</ListBox>
+			<Button Command="{Binding Back}" Background="#67BA80" HorizontalAlignment="Center">
+				<TextBlock Text="Назад"></TextBlock>
+			</Button>
+	</StackPanel>
+	</Grid>
+</UserControl>
